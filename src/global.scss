@@ -10,3 +10,31 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+
+@keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0.5; }
+    100% { opacity:1; }
+  }
+
+@-webkit-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0.5; }
+    100% { opacity:1; }
+  }
+
+$animationDuration : 1500ms;
+// fade each card one after another. this is accomplished
+// by adding a animation-delay
+@for $i from 2 to 4 { 
+    .skeleton-animation:nth-child(#{$i}) { 
+        animation-delay: ($i - 1) * 200ms; 
+    }
+}
+
+.skeleton-animation {
+    animation: flickerAnimation 1s infinite;
+    -webkit-animation: flickerAnimation 1s infinite;
+    animation-duration: $animationDuration;
+    animation-iteration-count: infinite;
+}

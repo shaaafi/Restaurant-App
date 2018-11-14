@@ -21,6 +21,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
+              "src/firebase-messaging-sw.js",
               {
                 "glob": "**/*",
                 "input": "src/assets",

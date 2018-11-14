@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+    <ion-searchbar animated="true" (ionInput)="search($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+   <ion-grid>
+    <ion-row>
+      <ion-col size-md="4" size-sm="12" size-lg="3" size="12" *ngFor="let item of searchedItem">
+          <ion-card >
+              <img [src]="item.img" style="max-height: 200px"/>
+              <ion-card-content>
+                <ion-card-title>
+                   {{item.name}}
+                  </ion-card-title>
+                <p>
+                  Price: <b>BDT <i>{{item.price}}</i></b>
+                </p>
+              </ion-card-content>
+              <ion-item>
+                <ion-button fill="clear" size="small" slot="start" style="color:rgba(0, 128, 0, 0.651)">
+                  <ion-icon name="star-half"></ion-icon>
+                  <ion-label>
+                    Favorite
+                  </ion-label>
+                </ion-button>
+                <ion-button fill="clear" size="small" slot="end" [routerDirection]="'forward'" [routerLink]="['/order', item.id]" style="color:rgba(0, 128, 0, 0.651)">
+                  <ion-icon name="share-alt"></ion-icon>
+                  <ion-label>
+                    Order
+                  </ion-label>
+                </ion-button>
+              </ion-item>
+            </ion-card>
+      </ion-col>
+     
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

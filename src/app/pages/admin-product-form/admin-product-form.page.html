@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button icon="arrow-round-back" defaultHref="home"></ion-back-button>
+        </ion-buttons>
+    <ion-title>admin-product-form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col size-md="6">
+                <ion-item>
+                   <ion-label position="floating">Name</ion-label>
+                  <ion-input type="text" name="name" [(ngModel)]="name"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label position="floating">Price</ion-label>
+                   <ion-input type="text" name="price" [(ngModel)]="price"></ion-input>
+                 </ion-item>
+                 <ion-item>
+                    <ion-label position="floating">Category</ion-label>
+                   <ion-input type="text" name="category" [(ngModel)]="category"></ion-input>
+                 </ion-item>
+                 <ion-item>
+                   <input type="file" name="file" (change)="fileUpload($event)">
+                 </ion-item>
+                 <ion-item style="margin-top:20px">
+                    <button style="color:blueviolet; width:100%; height:50px" (click)="save()">Save</button>
+                  </ion-item>
+                  <ion-item>
+                    <p>{{this.file$ | async}}</p>
+                  </ion-item>
+        </ion-col>     
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

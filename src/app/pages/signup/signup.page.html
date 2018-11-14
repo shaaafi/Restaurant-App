@@ -1,0 +1,48 @@
+
+<ion-content padding style="background-color: rgba(0, 128, 0, 0.651)">
+  <ion-grid>
+    <ion-row justify-content-center align-items-center style="height:95vh">
+      <ion-col size-md="5" size="12">
+              <ion-card padding style="background-color:rgba(220, 220, 220, 0.308)">
+                <ion-card-content>
+                <ion-row>
+                  <ion-col></ion-col>
+                  <ion-col>
+                    <img src="../../../assets/images/lll.jpg" class="logoimage" max-height="200px" max-width="200px">
+                  </ion-col>
+                  <ion-col></ion-col>                  
+                </ion-row>
+                <ion-item style="color:floralwhite">
+                    <ion-label position="floating">Name</ion-label>
+                   <ion-input type="text" name="name" [(ngModel)]="name"></ion-input>
+                 </ion-item>
+                <ion-item style="color:floralwhite">
+                   <ion-label position="floating">Email</ion-label>
+                  <ion-input type="text" name="email" [(ngModel)]="email"></ion-input>
+                </ion-item>
+                <ion-item style="color:floralwhite">
+                    <ion-label position="floating">Password</ion-label>
+                   <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
+                 </ion-item>
+                 <ion-item style="color:floralwhite">
+                    <ion-label position="floating">Confirm Password</ion-label>
+                   <ion-input type="password" name="confirmpassword" [(ngModel)]="confirmpassword"></ion-input>
+                 </ion-item>
+                 <ion-item style="color:floralwhite">
+                    <ion-label position="floating">Address</ion-label>
+                   <ion-input type="text" name="address" [(ngModel)]="address"></ion-input>
+                 </ion-item>
+                 <ion-item style="margin-top:20px">
+                    <button (click)="signup()" style="color:floralwhite; width:100%; height:50px;background-color: rgba(0, 128, 0, 0.267);box-shadow: 5px 5px 5px white; font-size: 1.5em">Signup</button>
+                  </ion-item>
+                </ion-card-content>
+                <div style="text-align:center;color:white">
+                  <p>Already have account? <a [routerDirection]="'backward'" [routerLink]="['/login']" style="color:white"><b><i>Signin</i></b></a> now</p>
+                </div>
+                </ion-card>
+        </ion-col>     
+    </ion-row>
+  </ion-grid>
+   
+ 
+</ion-content>

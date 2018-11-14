@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar class="navColor">
+    <ion-title>order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col size-md="6" size="12">
+        <ion-card style="border: solid 1px rgba(0, 128, 0, .9); box-shadow: 3px 3px 5px rgba(0, 128, 0, .9)" *ngIf="item">
+          <ion-card-content>
+              <ion-item-group lines>
+                  <ion-item float-start style="font-size:1.5em; font-weight: 600">
+                    {{item.name}}
+                  </ion-item>
+                  <ion-item float-end>
+                    {{item.price}}
+                    <hr>
+                  </ion-item>
+                </ion-item-group>
+                <ion-item padding-top>
+                    <ion-label>Quantity</ion-label>
+                    <ion-select value="1" okText="Okay" cancelText="Dismiss" name="number" [(ngModel)]="quantity">
+                      <ion-select-option value="1">1</ion-select-option>
+                      <ion-select-option value="2">2</ion-select-option>
+                      <ion-select-option value="3">3</ion-select-option>
+                      <ion-select-option value="4">4</ion-select-option>
+                      <ion-select-option value="5">5</ion-select-option>
+                      <ion-select-option value="6">6</ion-select-option>
+                      <ion-select-option value="7">7</ion-select-option>
+                      <ion-select-option value="8">8</ion-select-option>
+                      <ion-select-option value="9">9</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item padding-top>
+                    <ion-textarea [(ngModel)]="textarea" placeholder="Enter more information here... If u need anything extra ?" style="border:solid 1px rgba(0, 128, 0, .9);height:100px; color:rgba(0, 128, 0, .9)"></ion-textarea>
+                  </ion-item>
+                  <ion-item style="margin-top:100px">
+                      <button (click)="addToCart()" style="color:rgba(0, 128, 0, .9); width:100%; height:50px;background-color: whitesmoke;box-shadow: 5px 5px 5px white; font-size: 1.5em; border: solid 1px rgba(0, 128, 0, .9)">Done</button>
+                  </ion-item>
+          </ion-card-content>
+          
+         
+        </ion-card>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

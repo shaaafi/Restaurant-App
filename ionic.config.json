@@ -1,5 +1,7 @@
 {
   "name": "RestautantApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>admin-order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+        <ion-col size-md="6" size="12">
+            <ion-card>
+              <ion-card-content>
+                <ion-card-title>
+                  The Orders are following:
+                </ion-card-title>
+                    <ion-row *ngFor="let order of orders; let i = index" style="border-bottom:1px solid rgb(219, 197, 197); padding: 10px 0 10px 0" (click)="goToOrder(order.uid)">
+                          <ion-col size-md="5" size="6">
+                              {{i}}. {{order.name}}
+                          </ion-col>
+                          <ion-col size-md="7" size="6">
+                              {{order.time | date:'short'}}
+                          </ion-col>
+                    </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
