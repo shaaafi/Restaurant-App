@@ -83,7 +83,8 @@
       "cordova-plugin-ionic-keyboard": {},
       "phonegap-plugin-push": {
         "ANDROID_SUPPORT_V13_VERSION": "27.+",
-        "FCM_VERSION": "11.6.2"
+        "FCM_VERSION": "11.6.2",
+        "SENDER_ID": "636444625157"
       }
     },
     "platforms": [

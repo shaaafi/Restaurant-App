@@ -87,6 +87,7 @@
     <plugin name="phonegap-plugin-push" spec="2.2.3">
         <variable name="ANDROID_SUPPORT_V13_VERSION" value="27.+" />
         <variable name="FCM_VERSION" value="11.6.2" />
+         <variable name="SENDER_ID" value="636444625157" />
     </plugin>
     <engine name="android" spec="7.1.2" />
 </widget>
