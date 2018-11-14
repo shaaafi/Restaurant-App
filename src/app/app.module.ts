@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { Push } from '@ionic-native/push/ngx';
 
 
 @NgModule({
@@ -36,12 +37,12 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
     IonicStorageModule.forRoot(),
     AngularFireMessagingModule,
     AngularFireFunctionsModule
-
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Push
   ],
   bootstrap: [AppComponent]
 })

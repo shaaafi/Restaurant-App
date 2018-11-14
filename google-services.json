@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "636444625157",
+    "firebase_url": "https://myionicshop-693bc.firebaseio.com",
+    "project_id": "myionicshop-693bc",
+    "storage_bucket": "myionicshop-693bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636444625157:android:9af2bb66e7fd1f7c",
+        "android_client_info": {
+          "package_name": "com.shafideveloper.easyrestaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636444625157-27bmanpmupe49muo0kj4dk1ateh8gkev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClWVNigv8pfxkt2s0P0S5jXQZ6SVoi_5s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
