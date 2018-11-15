@@ -5,6 +5,7 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import * as app from 'firebase';
+import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class FcmService {
   constructor(
     private afMessaging: AngularFireMessaging,
     private fun: AngularFireFunctions,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private push: Push
   ) {
     /*
     this.afMessaging.messaging.subscribe(messaging => {
@@ -73,5 +75,44 @@ export class FcmService {
     this.fun
       .httpsCallable(' unsubscribeToTopic')({ topic, token: this.token })
       .pipe(tap(() => this.makeToast(`Unsubscribed From ${topic}`)));
+  }
+
+  nativePushSetup() {
+    this.push.hasPermission().then((res: any) => {
+      if (res.isEnabled) {
+        console.log('We have permission to send push notifications');
+
+        const options: PushOptions = {
+          android: {
+            senderID: '636444625157'
+          },
+          ios: {
+            alert: 'true',
+            badge: true,
+            sound: 'false'
+          }
+        };
+
+        const pushObject: PushObject = this.push.init(options);
+
+        pushObject.on('registration').subscribe((registration: any) => {
+          console.log('Device registered', registration);
+          this.token = registration.registrationId;
+          this.sub('newitem');
+        });
+
+        pushObject
+          .on('notification')
+          .subscribe((notification: any) =>
+            console.log('Received a notification', notification)
+          );
+
+        pushObject
+          .on('error')
+          .subscribe(error => console.error('Error with Push plugin', error));
+      } else {
+        console.log('We do not have permission to send push notifications');
+      }
+    });
   }
 }
