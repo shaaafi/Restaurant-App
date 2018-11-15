@@ -1,6 +1,13 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+import * as cors from 'cors';
+const corsHandler = cors({origin: true});
 admin.initializeApp();
+
+export const exampleFunction = functions.https.onRequest((request,response) => {
+    // tslint:disable-next-line:no-empty
+    corsHandler(request,response, ()=> {})
+})
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -24,6 +31,7 @@ export const unsubscribeToTopic = functions.https.onCall(
 )
 
 export const sendOnFirestoreCreate = functions.firestore.document('/foodItems/{id}').onCreate( async (snapshot) => {
+   
     const newItem = snapshot.data();
 
     const notification: admin.messaging.Notification = {

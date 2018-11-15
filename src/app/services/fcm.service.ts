@@ -84,7 +84,9 @@ export class FcmService {
 
         const options: PushOptions = {
           android: {
-            senderID: '636444625157'
+            senderID: '636444625157',
+            topics: ['newitem'],
+            forceShow: 'true'
           },
           ios: {
             alert: 'true',
@@ -97,8 +99,6 @@ export class FcmService {
 
         pushObject.on('registration').subscribe((registration: any) => {
           console.log('Device registered', registration);
-          this.token = registration.registrationId;
-          this.sub('newitem');
         });
 
         pushObject
