@@ -89,5 +89,10 @@
         <variable name="FCM_VERSION" value="11.6.2" />
         <variable name="SENDER_ID" value="636444625157" />
     </plugin>
+    <plugin name="cordova-plugin-facebook4" spec="3.1.0">
+        <variable name="APP_ID" value="1084395165053472" />
+        <variable name="APP_NAME" value="Easy Restaurant" />
+        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.37.0" />
+    </plugin>
     <engine name="android" spec="7.1.2" />
 </widget>

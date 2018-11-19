@@ -20,6 +20,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { Push } from '@ionic-native/push/ngx';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { Push } from '@ionic-native/push/ngx';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Push
+    Push,
+    Facebook
   ],
   bootstrap: [AppComponent]
 })

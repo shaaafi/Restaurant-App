@@ -37,5 +37,27 @@ export class LoginPage implements OnInit {
     });
   }
 
+  signinWithFb() {
+    this.afauthService.facebookLogin()
+    .then(() => {
+      this.storage.get('returnUrl')
+      .then(r => {
+        if (r) {
+          this.navController.navigateRoot(r);
+          this.storage.remove('returnUrl')
+          .then(() => {
+            console.log('You r signed in');
+          });
+        } else {
+          this.navController.navigateRoot('/home');
+          console.log('You r signed in');
+        }
+      });
+
+    }, () => {
+      console.log('User not logged in');
+    });
+  }
+
 
 }
