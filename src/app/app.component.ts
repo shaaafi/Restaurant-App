@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './services/auth.service';
 import { FcmService } from './services/fcm.service';
+import * as firebase from 'firebase';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -29,9 +31,11 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private afauth: AuthService,
-    private fcm: FcmService
+    private fcm: FcmService,
+    private userService: UserService
   ) {
     this.initializeApp();
+    this.updateCurrentUser();
     this.fcm.showMessages().subscribe();
     this.fcm.getPermission().subscribe();
   }
@@ -41,6 +45,12 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.fcm.nativePushSetup();
+    });
+  }
+
+  updateCurrentUser() {
+    this.afauth.authState$.subscribe((user: firebase.User) => {
+      console.log('Shouting from app component: ' + user);
     });
   }
 
