@@ -38,3 +38,27 @@ $animationDuration : 1500ms;
     animation-duration: $animationDuration;
     animation-iteration-count: infinite;
 }
+
+ion-toolbar {
+    --background: rgba(0, 128, 0, 0.9);
+    --color: white
+}
+
+#sidebar-profile {
+    background-color: rgba(0, 128, 0, .7);
+    color: white;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Baloo-Bhaina';
+    font-style: normal;
+    
+    src: url('./assets/fonts/Noa16Uzzzp2FIkfhq5vm9thBOw58.woff2')
+  }
+
+  * {
+    font-family: 'Baloo-Bhaina';
+
+  }

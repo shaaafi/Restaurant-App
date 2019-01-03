@@ -1,45 +1,82 @@
 <ion-header>
   <ion-toolbar>
+  <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>login</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding style="background-color: rgba(0, 128, 0, 0.651)">
+<ion-content>
   <ion-grid>
-    <ion-row justify-content-center align-items-center style="height:70vh">
+    <ion-row justify-content-center align-items-center style="height:90vh">
       <ion-col size-md="5" size="12">
-              <ion-card padding style="background-color:rgba(220, 220, 220, 0.308)">
-                <ion-card-content>
-                <ion-row>
-                  <ion-col></ion-col>
-                  <ion-col>
-                    <img src="../../../assets/images/lll.jpg" class="logoimage" max-height="200px" max-width="200px">
+        <ion-card style="background-color:rgba(220, 220, 220, 0.308)" class="slideInLeft">
+          <ion-card-content>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col>
+                <img src="../../../assets/images/lll.jpg" class="logoimage" max-height="200px" max-width="200px">
+              </ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+
+             <ion-input type="text" name="email" [(ngModel)]="email" placeholder="Email"></ion-input>
+
+             <ion-input type="password" name="password" [(ngModel)]="password" placeholder="password"></ion-input>
+
+
+          <ion-row justify-content-center>
+            <ion-col size="12">
+              <ion-button fill="solid" shape="round" expand="block" (click)="signin()" color="success">
+                  <ion-icon name="log-in" slot="start"></ion-icon>
+                Signin</ion-button> 
+            </ion-col>
+          </ion-row>
+
+          <ion-item text-center lines="none">
+              <ion-label>
+                  <ion-text color="light">
+                      Or Sign in with social account
+                  </ion-text>
+                 
+                </ion-label>
+          </ion-item>
+            
+          
+
+          <ion-row justify-content-center>
+            <ion-col size="6">
+              <ion-button fill="outline" expand="block" (click)="signinWithFb()" color="warning">
+                <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+              </ion-button> 
+            </ion-col>
+            <ion-col size="6">
+              <ion-button fill="outline" expand="block" color="warning"> 
+                <ion-icon slot="icon-only" name="logo-google"></ion-icon>
+              </ion-button> 
+            </ion-col>
+          </ion-row>
+            
+           
+          </ion-card-content>
+          <div style="text-align:center;color:white">
+            <p>Don't have account? </p>
+
+              <ion-row justify-content-center>
+                  <ion-col size="8">
+                      <ion-button fill="solid" shape="round" expand="block" (click)="signin()" color="success" [routerDirection]="'forward'" [routerLink]="['/signup']" >
+                          <ion-icon name="log-in" slot="start"></ion-icon>
+                        Signup</ion-button> 
                   </ion-col>
-                  <ion-col></ion-col>                  
                 </ion-row>
-      
-                <ion-item>
-                   <ion-label position="floating">Email</ion-label>
-                  <ion-input type="text" name="email" [(ngModel)]="email"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label position="floating">Password</ion-label>
-                   <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
-                 </ion-item>
-                 <ion-item style="margin-top:20px">
-                    <button (click)="signin()" style="color:floralwhite; width:100%; height:50px;background-color: rgba(0, 128, 0, 0.267);box-shadow: 5px 5px 5px white; font-size: 1.5em">Signin</button>
-                  </ion-item>
-                  <ion-item style="margin-top:20px">
-                    <button (click)="signinWithFb()" style="color:floralwhite; width:100%; height:50px;background-color: rgba(0, 128, 0, 0.267);; font-size: 1.5em">Signin With Facebook</button>
-                  </ion-item>
-                </ion-card-content>
-                <div style="text-align:center;color:white">
-                  <p>Don't have account? <a [routerDirection]="'forward'" [routerLink]="['/signup']" style="color:white"><b><i>Signup</i></b></a> now</p>
-                </div>
-                </ion-card>
-        </ion-col>     
+          </div>
+         
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
-   
- 
+
+
 </ion-content>

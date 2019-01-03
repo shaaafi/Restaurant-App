@@ -1,3 +1,63 @@
-ion-content {
-    --background: rgba(0, 128, 0, 0.651)
+ion-item {
+    --ion-item-background: rgba(0, 0, 0, 0);
 }
+
+ion-input {
+  background-color: rgb(236, 219, 164);
+  --padding-start:20px;
+  --placeholder-color: rgb(12, 1, 1);
+  border-top-left-radius: 20px; border-bottom-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;
+  --color: white;
+}
+
+ion-input[type="text"] {
+  margin-top:30px
+}
+
+ion-input[type="password"] {
+  margin-top:10px;
+  margin-bottom: 15px;
+}
+
+ion-content {
+  background-image: url('../../../assets/images/login.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  --background:  no-repeat center contain;
+}
+
+@-webkit-keyframes slideInLeft {
+    from {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+    animation-duration: 1s;
+  }
+
+  
+  

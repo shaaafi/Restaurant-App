@@ -25,9 +25,9 @@
 <ion-content>
   <ion-grid>
     <ion-row *ngIf="items; else skeleton">
-      <ion-col size-md="4" size-sm="12" size-lg="3" size="12" *ngFor="let item of items">
-          <ion-card >
-              <img [src]="item.img" style="max-height: 200px"/>
+      <ion-col size-md="4" size-sm="6" size-lg="3" size="6" *ngFor="let item of items">
+          <ion-card class="slideInLeft">
+              <img [src]="item.img" style="height: 20vh"/>
               <ion-card-content>
                 <ion-card-title>
                    {{item.name}}
@@ -43,7 +43,7 @@
                     Favorite
                   </ion-label>
                 </ion-button>
-                <ion-button fill="clear" size="small" slot="end" [routerDirection]="'forward'" [routerLink]="['/order', item.id]" style="color:rgba(0, 128, 0, 0.651)">
+                <ion-button fill="clear" size="small" slot="end" [routerDirection]="'forward'" [routerLink]="['/order', item.id]" style="color:#8e918ea6">
                   <ion-icon name="share-alt"></ion-icon>
                   <ion-label>
                     Order
