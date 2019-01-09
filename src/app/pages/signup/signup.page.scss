@@ -10,14 +10,21 @@ ion-input {
   --color: white;
 }
 
-ion-input[type="text"] {
-  margin-top:30px
+ion-input[name="name"] {
+  margin-top:50px
 }
 
-ion-input[type="password"] {
-  margin-top:10px;
-  margin-bottom: 15px;
+
+.input-margin{ 
+ margin-top: 10px;
 }
+
+ion-input[name="address"] {
+  margin-bottom:30px
+}
+
+
+
 
 ion-content {
   background-image: url('../../../assets/images/login.jpg');

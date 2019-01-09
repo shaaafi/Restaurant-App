@@ -22,28 +22,62 @@
               </ion-col>
               <ion-col></ion-col>
             </ion-row>
+            <form (ngSubmit)="signup()" #signupForm="ngForm">
 
-            <ion-input type="text" name="name" [(ngModel)]="name" placeholder="name"></ion-input>
+              <ion-input type="text" name="name" [(ngModel)]="name" placeholder="name" required="true"></ion-input>
 
-            <ion-input type="text" name="email" [(ngModel)]="email" placeholder="email"></ion-input>
+              <ion-input type="text" name="email" [(ngModel)]="email" placeholder="email" class="input-margin" required="true"></ion-input>
+  
+              <ion-input type="password" name="password" [(ngModel)]="password" placeholder="password" class="input-margin" required="true"></ion-input>
+  
+              <ion-input type="password" name="confirmpassword" [(ngModel)]="confirmpassword" placeholder="confirm password" class="input-margin" required="true"></ion-input>
+  
+              <ion-input type="password" name="address" [(ngModel)]="address" placeholder="address" class="input-margin" required="true"></ion-input>
+  
+  
+              <ion-row justify-content-center>
+                <ion-col size="12">
+                  <ion-button type="submit" fill="solid" shape="round" expand="block" color="success" [disabled]="!signupForm.valid ? true : false">
+                    <ion-icon name="log-in" slot="start"></ion-icon>
+                    Signup
+                  </ion-button>
+                </ion-col>
+              </ion-row>
 
-            <ion-input type="password" name="password" [(ngModel)]="password" placeholder="password"></ion-input>
+            </form>
+           
+            <!--
 
-            <ion-input type="password" name="confirmpassword" [(ngModel)]="confirmpassword" placeholder="confirm password"></ion-input>
-
-            <ion-input type="password" name="address" [(ngModel)]="address" placeholder="address"></ion-input>
-
-            <ion-input type="password" name="address" [(ngModel)]="address" placeholder="address"></ion-input>
-
-            <ion-row justify-content-center>
-              <ion-col size="12">
-                <ion-button fill="solid" shape="round" expand="block" (click)="signup()" color="success">
-                  <ion-icon name="log-in" slot="start"></ion-icon>
-                  Signup
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-card-content>
+     <ion-item style="color:floralwhite">
+                    <ion-label position="floating">Name</ion-label>
+                  
+                    <ion-input type="text" name="name" [(ngModel)]="name"></ion-input>
+                 </ion-item>
+                <ion-item style="color:floralwhite">
+                   <ion-label position="floating">Email</ion-label>
+                  <ion-input type="text" name="email" [(ngModel)]="email"></ion-input>
+                </ion-item>
+                <ion-item style="color:floralwhite">
+                    <ion-label position="floating">Password</ion-label>
+                   <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
+                 </ion-item>
+                 <ion-item style="color:floralwhite">
+                    <ion-label position="floating">Confirm Password</ion-label>
+                   <ion-input type="password" name="confirmpassword" [(ngModel)]="confirmpassword"></ion-input>
+                 </ion-item>
+                 <ion-item style="color:floralwhite">
+                    <ion-label position="floating">Address</ion-label>
+                   <ion-input type="text" name="address" [(ngModel)]="address"></ion-input>
+                 </ion-item>
+                 <ion-item style="margin-top:20px">
+                    <button (click)="signup()" style="color:floralwhite; width:100%; height:50px;background-color: rgba(0, 128, 0, 0.267);box-shadow: 5px 5px 5px white; font-size: 1.5em">Signup</button>
+                  </ion-item>
+                </ion-card-content>
+                <div style="text-align:center;color:white">
+                  <p>Already have account? <a [routerDirection]="'backward'" [routerLink]="['/login']" style="color:white"><b><i>Signin</i></b></a> now</p>
+                </div>
+-->
+</ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
