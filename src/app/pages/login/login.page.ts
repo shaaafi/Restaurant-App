@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { NavController } from '@ionic/angular';
+import { NavController, DomController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -10,12 +10,18 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage implements OnInit {
 
+
+
   email = '';
   password = '';
+  // tslint:disable-next-line:max-line-length
   constructor(private afauthService: AuthService, private navController: NavController, private storage: Storage) { }
 
   ngOnInit() {
+
   }
+
+  
 
   signin() {
     this.afauthService.signin(this.email, this.password)

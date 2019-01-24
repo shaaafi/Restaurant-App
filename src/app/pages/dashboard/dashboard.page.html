@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-round-back" defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-row justify-content-center>
+    <ion-col size="12" size-md="6" *ngFor="let card of cardInfo">
+        <ion-card (mouseenter)="card.focusClass = true" (mouseleave)="card.focusClass = false" [class.pulse]="card.focusClass" [routerLink]="card.path" [routerDirection]="'forward'">
+          <ion-card-content>
+            <ion-text>
+              <h1>{{card.title}}</h1>
+              <p>{{card.para}}</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+</ion-row>
+</ion-content>

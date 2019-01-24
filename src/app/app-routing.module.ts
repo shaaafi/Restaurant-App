@@ -12,9 +12,13 @@ const routes: Routes = [
   {
     path: 'home', loadChildren: './pages/home/home.module#HomePageModule'
   },
+
   { path: 'cart', loadChildren: './pages/cart/cart.module#CartPageModule', canActivate: [UserGuard] },
+
   // tslint:disable-next-line:max-line-length
   { path: 'admin-product-form', loadChildren: './pages/admin-product-form/admin-product-form.module#AdminProductFormPageModule', canActivate: [UserGuard, AdminGuard] },
+  // tslint:disable-next-line:max-line-length
+  { path: 'admin-product-form/:id', loadChildren: './pages/admin-product-form/admin-product-form.module#AdminProductFormPageModule', canActivate: [UserGuard, AdminGuard] },
   // tslint:disable-next-line:max-line-length
   { path: 'admin-product', loadChildren: './pages/admin-product/admin-product.module#AdminProductPageModule', canActivate: [UserGuard, AdminGuard] },
   // tslint:disable-next-line:max-line-length
@@ -25,6 +29,8 @@ const routes: Routes = [
   { path: 'order/:id', loadChildren: './pages/order/order.module#OrderPageModule', canActivate: [UserGuard] },
   { path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
   { path: 'admin_order_detail/:id', loadChildren: './pages/admin-order-detail/admin-order-detail.module#AdminOrderDetailPageModule' },
+  { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule' },
+  { path: 'all-products', loadChildren: './pages/all-products/all-products.module#AllProductsPageModule' },
 ];
 
 @NgModule({

@@ -9,6 +9,8 @@ import { CartService } from '../../services/cart.service';
 import { Cart } from '../../models/cart';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -22,6 +24,7 @@ export class HomePage implements OnInit, OnDestroy {
   quantity: number;
   authstate: any;
   items: foodItem[];
+  
   // tslint:disable-next-line:max-line-length
   constructor(private popOver: PopoverController, private foodService: FoodsService, private navController: NavController, private afauth: AuthService, private cartService: CartService, private a: AngularFireAuth) {
     this.subscription = this.afauth.authState$.subscribe(r => {

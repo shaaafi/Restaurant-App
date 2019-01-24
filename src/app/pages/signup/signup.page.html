@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header translucent="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
@@ -9,10 +9,11 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content scrollY="false">
   <ion-grid>
     <ion-row justify-content-center align-items-center style="height:95vh">
       <ion-col size-md="5" size="12">
+        <div #signupCard>
         <ion-card padding style="background-color:rgba(220, 220, 220, 0.308)" class="slideInLeft">
           <ion-card-content>
             <ion-row>
@@ -79,6 +80,7 @@
 -->
 </ion-card-content>
         </ion-card>
+      </div>
       </ion-col>
     </ion-row>
   </ion-grid>

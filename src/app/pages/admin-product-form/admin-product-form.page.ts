@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { FoodsService } from '../../services/foods.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -24,12 +25,24 @@ export class AdminProductFormPage implements OnInit {
   file$: Observable<string> ;
   fileLink: string ;
   task: any ;
+  id: string ;
+  item: foodItem;
 
-  constructor(private fupload: UploadFileService, private foodService: FoodsService) {
+  constructor(private fupload: UploadFileService, private foodService: FoodsService, private route: ActivatedRoute) {
 
    }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) {
+      this.foodService.getItem(this.id).subscribe( r => {
+        this.item = r ;
+        this.name = this.item.name;
+        this.price = this.item.price;
+        this.category = this.item.category;
+      });
+    }
+
   }
 
   fileUpload(ev) {

@@ -40,4 +40,15 @@ export class FoodsService {
     return this.item;
   }
 
+  // tslint:disable-next-line:whitespace
+  updateItem(uid: string,updatedItem: foodItem) {
+    this.itemDoc = this.afs.doc<foodItem>('foodItems/' + uid);
+    return this.itemDoc.update(updatedItem);
+  }
+
+  removeItem(uid: string) {
+    this.itemDoc = this.afs.doc<foodItem>('foodItems/' + uid);
+    return this.itemDoc.delete();
+  }
+
 }

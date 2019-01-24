@@ -21,6 +21,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { Push } from '@ionic-native/push/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { Facebook } from '@ionic-native/facebook/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Push,
-    Facebook
+    Facebook,
+    NativePageTransitions
   ],
   bootstrap: [AppComponent]
 })

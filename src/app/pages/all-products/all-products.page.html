@@ -1,0 +1,36 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-round-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>all-products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+<ion-row justify-content-center *ngFor="let item of items">
+  <ion-col size="12" size-md="6">
+      <ion-list>
+          <ion-item>
+              <ion-thumbnail slot="start">
+                <img [src]="item.img">
+              </ion-thumbnail>
+              <ion-label>
+                <h2>{{item.name}}</h2>
+                <p>Price: tk {{item.price}}</p>
+              </ion-label>
+              <ion-buttons slot="end">
+                  <ion-button color="primary" shape="round" fill="outline" size="small" [routerDirection]="'forward'" [routerLink]="['/admin-product-form', item.id]">
+                      <ion-icon  name="paper"></ion-icon>
+                      asdas
+                    </ion-button>
+                    <ion-button color="danger" shape="round" fill="outline" size="small" (click)="remove(item.id)">
+                        <ion-icon slot="icon-only" name="trash"></ion-icon>
+                      </ion-button>
+              </ion-buttons>
+              
+            </ion-item>
+      </ion-list>
+  </ion-col>
+</ion-row>
+</ion-content>

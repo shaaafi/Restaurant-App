@@ -23,6 +23,11 @@ export class AppComponent {
       title: 'Product Form',
       url: '/admin-product-form',
       icon: 'list-box'
+    },
+    {
+      title: 'Dashboard',
+      url: '/dashboard',
+      icon: 'list-box'
     }
   ];
 
@@ -43,6 +48,8 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
+      this.statusBar.show();
+      this.statusBar.backgroundColorByHexString('#008000');
       this.splashScreen.hide();
       this.fcm.nativePushSetup();
     });
