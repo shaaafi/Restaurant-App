@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button text="" icon="arrow-round-back"></ion-back-button>
+        </ion-buttons>
     <ion-title>admin_order_detail</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -33,7 +36,6 @@
           <ion-item>
             Division: {{order.shippingAddress.division}}
           </ion-item>
-          
         </ion-card-content>
       </ion-card>
     </ion-col>
@@ -96,8 +98,6 @@
               </ion-label>
             </ion-col>
           </ion-row>
-          
-         
         </ion-card-content>
       </ion-card>
 

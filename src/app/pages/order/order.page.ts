@@ -16,6 +16,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class OrderPage implements OnInit {
 
   id: string ;
+  uid: string;
   textarea: string ;
   quantity: any ;
   item: foodItem ;
@@ -24,6 +25,7 @@ export class OrderPage implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.uid = this.afauth.auth.currentUser.uid;
     this.foodService.getItem(this.id).subscribe( r => {
       this.item = r ;
     });
@@ -31,8 +33,9 @@ export class OrderPage implements OnInit {
 
   addToCart() {
     console.log('clicked');
-    const myCart: CartItem = new CartItem(this.item, this.quantity, this.textarea);
-    this.cartService.addCart(myCart, this.afauth.auth.currentUser.uid, this.id);
+    const myCart: CartItem = new CartItem(this.item, this.quantity, this.textarea, this.uid);
+    this.cartService.addCart(myCart);
+    
   }
 
 }

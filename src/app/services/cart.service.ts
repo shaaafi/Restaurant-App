@@ -30,13 +30,19 @@ export class CartService {
   }
 
   getCart(uuid: string) {
-   this.itemsCollection = this.afs.collection<CartItem>('carts/' + uuid + '/dummy');
+    /*
+   this.itemsCollection = this.afs.collection<CartItem>('carts/');
    this.items = this.itemsCollection.valueChanges();
    return this.items;
+    */
+   return this.afs
+      .collection<CartItem>('carts', ref => ref.where('uid', '==', uuid))
+      .valueChanges();
   }
 
-  addCart(cart: CartItem, uuid: string, iuid: string) {
-   this.itemsCollection = this.afs.collection<CartItem>('carts/' + uuid + '/dummy/');
+  addCart(cart: CartItem) {
+   this.itemsCollection = this.afs.collection<CartItem>('carts/');
    this.itemsCollection.add(cart);
   }
+
 }
