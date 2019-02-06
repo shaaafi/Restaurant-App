@@ -30,7 +30,7 @@ export class AuthService {
   signout() {
     return this.afauth.auth.signOut();
   }
-
+/*
    facebookLogin(): Promise<any> {
     return this.facebook.login(['email'])
       .then( response => {
@@ -44,5 +44,22 @@ export class AuthService {
 
       }).catch((error) => { console.log(error); });
   }
+*/
+
+facebookLogin(): Promise<firebase.auth.UserCredential> {
+  return this.afauth.auth.signInWithPopup(
+    new firebase.auth.FacebookAuthProvider().addScope('email')
+  );
+
+}
+
+googleLogin(): Promise<firebase.auth.UserCredential> {
+  return this.afauth.auth.signInWithPopup(
+    new firebase.auth.GoogleAuthProvider()
+  );
+
+}
+
+
 
 }

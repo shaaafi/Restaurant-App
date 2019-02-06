@@ -21,7 +21,6 @@ export class LoginPage implements OnInit {
 
   }
 
-  
 
   signin() {
     this.afauthService.signin(this.email, this.password)
@@ -45,18 +44,42 @@ export class LoginPage implements OnInit {
 
   signinWithFb() {
     this.afauthService.facebookLogin()
-    .then(() => {
+    .then((credential) => {
+      console.log('here is credential: ' + JSON.stringify(credential) );
       this.storage.get('returnUrl')
       .then(r => {
         if (r) {
           this.navController.navigateRoot(r);
           this.storage.remove('returnUrl')
           .then(() => {
-            console.log('You r signed in');
+            console.log('You r signed in with fb');
           });
         } else {
           this.navController.navigateRoot('/home');
-          console.log('You r signed in');
+          console.log('You r signed in with fb');
+        }
+      });
+
+    }, () => {
+      console.log('User not logged in');
+    });
+  }
+
+  signinWithGoogle(){
+    this.afauthService.googleLogin()
+    .then((credential) => {
+      console.log('here is credential: ' + JSON.stringify(credential) );
+      this.storage.get('returnUrl')
+      .then(r => {
+        if (r) {
+          this.navController.navigateRoot(r);
+          this.storage.remove('returnUrl')
+          .then(() => {
+            console.log('You r signed in with google');
+          });
+        } else {
+          this.navController.navigateRoot('/home');
+          console.log('You r signed in with google');
         }
       });
 
