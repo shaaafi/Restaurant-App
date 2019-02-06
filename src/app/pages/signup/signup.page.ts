@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
@@ -10,9 +10,9 @@ import { ToastController, NavController, DomController } from '@ionic/angular';
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
 })
-export class SignupPage implements OnInit, AfterViewInit {
+export class SignupPage implements OnInit {
 
-  @ViewChild('signupCard') private signupCard: ElementRef;
+
 
   public name = '';
   public password = '';
@@ -20,18 +20,12 @@ export class SignupPage implements OnInit, AfterViewInit {
   public address = '';
   public email = '';
   // tslint:disable-next-line:max-line-length
-  constructor(private afauthService: AuthService, private userService: UserService, public afauth: AngularFireAuth, public toastController: ToastController, private navController: NavController, private domCtrl: DomController, private renderer: Renderer2) { }
+  constructor(private afauthService: AuthService, private userService: UserService, public afauth: AngularFireAuth, public toastController: ToastController, private navController: NavController) { }
 
   ngOnInit() {
   }
 
-  ngAfterViewInit() {
-
-      this.domCtrl.write(() => {
-        this.renderer.addClass(this.signupCard.nativeElement, 'zoomIn');
-      });
-
-    }
+ 
 
   signup() {
     this.afauthService.signup(this.email, this.password)

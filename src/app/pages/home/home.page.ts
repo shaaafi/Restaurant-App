@@ -22,9 +22,16 @@ export class HomePage implements OnInit, OnDestroy {
   subscription1: Subscription;
   uid = '' ;
   quantity: number;
-  authstate: any;
+  authstate: any; 
   items: foodItem[];
+  swiper: any = {
+    
+    autoplay: {
+      delay:  2000
+    },
   
+  };
+
   // tslint:disable-next-line:max-line-length
   constructor(private popOver: PopoverController, private foodService: FoodsService, private navController: NavController, private afauth: AuthService, private cartService: CartService, private a: AngularFireAuth) {
     this.subscription = this.afauth.authState$.subscribe(r => {
@@ -59,6 +66,7 @@ export class HomePage implements OnInit, OnDestroy {
 
   goLogin() {
     this.navController.navigateForward('/login');
+    
   }
 
   getQuantity() {

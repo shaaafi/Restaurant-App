@@ -1,4 +1,4 @@
-<ion-header translucent="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button text="" icon="arrow-round-back"></ion-back-button>
@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen="true">
+<ion-content>
 <ion-row justify-content-center *ngFor="let item of items">
   <ion-col size="12" size-md="6">
       <ion-list>
@@ -21,8 +21,8 @@
               </ion-label>
               <ion-buttons slot="end">
                   <ion-button color="primary" shape="round" fill="outline" size="small" [routerDirection]="'forward'" [routerLink]="['/admin-product-form', item.id]">
-                      <ion-icon  name="paper"></ion-icon>
-                      asdas
+                      <ion-icon slot="icon-only" name="paper"></ion-icon>
+  
                     </ion-button>
                     <ion-button color="danger" shape="round" fill="outline" size="small" (click)="remove(item.id)">
                         <ion-icon slot="icon-only" name="trash"></ion-icon>

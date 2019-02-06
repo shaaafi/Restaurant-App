@@ -8,8 +8,8 @@
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="goLogin()" [hidden]="authstate">
-       <ion-icon slot="start" name="log-in"></ion-icon>  
-          Signin
+       <ion-icon slot="icon-only" name="log-in"></ion-icon>  
+         
       </ion-button>
       <ion-button [routerDirection]="'forward'" routerLink="/cart">
         <ion-icon slot="icon-only" name="cart"></ion-icon>
@@ -23,7 +23,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides pager="true" style="height:40vh;--bullet-background: white;">
+  <ion-slides pager="true" style="height:40vh;--bullet-background: white;" [options]="swiper">
     <ion-slide class="slide-one">
       <ion-label color="--ion-color-tertiary-tint">
           <h1>
@@ -57,6 +57,7 @@
               </ion-label>
             </ion-slide> 
   </ion-slides>
+
   <ion-grid>
     <ion-row *ngIf="items; else skeleton">
       <ion-col size-md="4" size-sm="12" size-lg="3" size="12" *ngFor="let item of items">
@@ -69,9 +70,6 @@
                 <p>
                   Price: <b>BDT  <i>{{item.price}}</i></b>
                 </p>
-              
-              
-
               </ion-card-content>
            
               <ion-item>

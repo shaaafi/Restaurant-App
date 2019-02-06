@@ -12,6 +12,7 @@ import { UserService } from './services/user.service';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
+
 export class AppComponent {
   public appPages = [
     {
@@ -20,8 +21,8 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Product Form',
-      url: '/admin-product-form',
+      title: 'Orders',
+      url: '/admin-order',
       icon: 'list-box'
     },
     {

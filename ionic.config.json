@@ -3,5 +3,11 @@
   "integrations": {
     "cordova": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "proxies": [
+    {
+      "path":"/subscribeToTopic",
+      "proxyUrl": "https://null-myionicshop-693bc.cloudfunctions.net/subscribeToTopic"
+    }
+  ]
 }
