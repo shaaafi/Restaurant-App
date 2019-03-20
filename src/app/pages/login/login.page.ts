@@ -10,11 +10,9 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage implements OnInit {
 
-
-
   email = '';
   password = '';
-  // tslint:disable-next-line:max-line-length
+
   constructor(private afauthService: AuthService, private navController: NavController, private storage: Storage) { }
 
   ngOnInit() {
@@ -65,7 +63,7 @@ export class LoginPage implements OnInit {
     });
   }
 
-  signinWithGoogle(){
+  signinWithGoogle() {
     this.afauthService.googleLogin()
     .then((credential) => {
       console.log('here is credential: ' + JSON.stringify(credential) );

@@ -35,7 +35,7 @@ export class OrderPage implements OnInit {
     console.log('clicked');
     const myCart: CartItem = new CartItem(this.item, this.quantity, this.textarea, this.uid);
     this.cartService.addCart(myCart);
-    
+
   }
 
 }

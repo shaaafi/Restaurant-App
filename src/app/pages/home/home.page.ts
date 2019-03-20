@@ -22,14 +22,14 @@ export class HomePage implements OnInit, OnDestroy {
   subscription1: Subscription;
   uid = '' ;
   quantity: number;
-  authstate: any; 
+  authstate: any;
   items: foodItem[];
   swiper: any = {
-    
+
     autoplay: {
       delay:  2000
     },
-  
+
   };
 
   // tslint:disable-next-line:max-line-length
@@ -66,7 +66,7 @@ export class HomePage implements OnInit, OnDestroy {
 
   goLogin() {
     this.navController.navigateForward('/login');
-    
+
   }
 
   getQuantity() {
