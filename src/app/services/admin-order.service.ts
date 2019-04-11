@@ -36,7 +36,22 @@ export class AdminOrderService {
   getOrder(uuid: string) {
     return this.afs
       .collection('orders', ref => ref.where('uid', '==', uuid))
-      .valueChanges();
+      .snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as Order;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+  }
+
+  removeOrder(uuid: string) {
+     this.itemDoc = this.afs.doc<Order>('orders/' + uuid);
+     this.itemDoc.delete().then(
+      r => {
+        console.log('deleted ' + uuid);
+      }
+    );
   }
 
   addOrder(order: Order) {

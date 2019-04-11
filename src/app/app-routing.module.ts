@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'admin_order_detail/:id', loadChildren: './pages/admin-order-detail/admin-order-detail.module#AdminOrderDetailPageModule' },
   { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule' },
   { path: 'all-products', loadChildren: './pages/all-products/all-products.module#AllProductsPageModule' },
+  { path: 'order-history', loadChildren: './pages/order-history/order-history.module#OrderHistoryPageModule' },
 ];
 
 @NgModule({

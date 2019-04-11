@@ -27,13 +27,13 @@ export class CompleteOrderService {
       }))
     );
     */
-   this.itemsCollection = this.afs.collection<Order>('orders');
+   this.itemsCollection = this.afs.collection<Order>('ordersCompleted/');
    return this.itemsCollection.valueChanges();
 
   }
 
   getOrder(uuid: string) {
-    return this.afs.collection('orders', ref => ref.where('uid', '==', uuid)).valueChanges();
+    return this.afs.collection('ordersCompleted/', ref => ref.where('uid', '==', uuid)).valueChanges();
   }
 
   addOrder(order: Order) {
