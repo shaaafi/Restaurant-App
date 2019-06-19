@@ -1,0 +1,7 @@
+{
+  "appId": "com.shafideveloper.easyrestaurant",
+  "appName": "EasyRestaurant",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

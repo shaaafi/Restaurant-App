@@ -1,12 +1,13 @@
 {
   "name": "RestautantApp",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular",
   "proxies": [
     {
-      "path":"/subscribeToTopic",
+      "path": "/subscribeToTopic",
       "proxyUrl": "https://null-myionicshop-693bc.cloudfunctions.net/subscribeToTopic"
     }
   ]
