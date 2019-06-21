@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './services/auth.service';
 import { FcmService } from './services/fcm.service';
 import * as firebase from 'firebase';
 import { UserService } from './services/user.service';
+import { Plugins } from '@capacitor/core';
+
+const { SplashScreen, StatusBar } = Plugins;
 
 @Component({
   selector: 'app-root',
@@ -34,8 +34,6 @@ export class AppComponent {
 
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private afauth: AuthService,
     private fcm: FcmService,
     private userService: UserService
@@ -47,13 +45,8 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.statusBar.show();
-      this.statusBar.backgroundColorByHexString('#008000');
-      this.splashScreen.hide();
-      this.fcm.nativePushSetup();
-    });
+    SplashScreen.hide();
+    StatusBar.show();
   }
 
   updateCurrentUser() {
