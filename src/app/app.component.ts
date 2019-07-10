@@ -5,7 +5,7 @@ import { FcmService } from './services/fcm.service';
 import * as firebase from 'firebase';
 import { UserService } from './services/user.service';
 import { Plugins } from '@capacitor/core';
-
+import { FcmWithCapacitorService } from './services/fcm-with-capacitor.service';
 const { SplashScreen, StatusBar } = Plugins;
 
 @Component({
@@ -35,18 +35,21 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private afauth: AuthService,
-    private fcm: FcmService,
-    private userService: UserService
+  //  private fcm: FcmService,
+    private userService: UserService,
+    private fcm: FcmWithCapacitorService
   ) {
     this.initializeApp();
     this.updateCurrentUser();
-    this.fcm.showMessages().subscribe();
-    this.fcm.getPermission().subscribe();
+  //  this.fcm.showMessages().subscribe();
+  //  this.fcm.getPermission().subscribe();
+    // this.fcm.nativePushSetup();
   }
 
   initializeApp() {
     SplashScreen.hide();
     StatusBar.show();
+    this.fcm.nativePushWithCapacitor();
   }
 
   updateCurrentUser() {

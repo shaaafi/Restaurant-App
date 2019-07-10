@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
-import { Facebook } from '@ionic-native/facebook/ngx';
 import * as firebase from 'firebase';
 
 
@@ -12,7 +11,7 @@ export class AuthService {
 
   public authState$: Observable<firebase.User>;
   public authState: any ;
-  constructor(public afauth: AngularFireAuth, private facebook: Facebook) {
+  constructor(public afauth: AngularFireAuth) {
     this.authState$ = this.afauth.authState;
     this.afauth.authState.subscribe( r => {
       this.authState = r ;

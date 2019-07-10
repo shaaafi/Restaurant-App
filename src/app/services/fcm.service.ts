@@ -5,7 +5,7 @@ import { AngularFireFunctions } from '@angular/fire/functions';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import * as app from 'firebase';
-import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
+// import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,9 @@ export class FcmService {
     private afMessaging: AngularFireMessaging,
     private fun: AngularFireFunctions,
     private toastController: ToastController,
-    private push: Push
+  //  private push: Push
   ) {
+    // this */ was commented before the inactivation
     /*
     this.afMessaging.messaging.subscribe(messaging => {
       messaging.onTokenRefresh = messaging.onTokenRefresh.bind(messaging);
@@ -76,7 +77,7 @@ export class FcmService {
       .httpsCallable(' unsubscribeToTopic')({ topic, token: this.token })
       .pipe(tap(() => this.makeToast(`Unsubscribed From ${topic}`)));
   }
-
+/*
   nativePushSetup() {
     this.push.hasPermission().then((res: any) => {
       if (res.isEnabled) {
@@ -115,4 +116,5 @@ export class FcmService {
       }
     });
   }
+  */
 }

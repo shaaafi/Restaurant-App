@@ -19,10 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
-import { Push } from '@ionic-native/push/ngx';
-import { Facebook } from '@ionic-native/facebook/ngx';
-import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx';
-
+// import { Push } from '@ionic-native/push/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,10 +40,7 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Push,
-    Facebook,
-    NativePageTransitions
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
