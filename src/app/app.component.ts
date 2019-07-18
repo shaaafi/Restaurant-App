@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { AuthService } from './services/auth.service';
-import { FcmService } from './services/fcm.service';
+ import { FcmService } from './services/fcm.service';
 import * as firebase from 'firebase';
 import { UserService } from './services/user.service';
 import { Plugins } from '@capacitor/core';
@@ -35,21 +35,24 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private afauth: AuthService,
-  //  private fcm: FcmService,
+    private fcm: FcmService,
     private userService: UserService,
-    private fcm: FcmWithCapacitorService
+    private fcmCap: FcmWithCapacitorService
   ) {
     this.initializeApp();
     this.updateCurrentUser();
-  //  this.fcm.showMessages().subscribe();
-  //  this.fcm.getPermission().subscribe();
-    // this.fcm.nativePushSetup();
+    this.fcm.showMessages().subscribe();
+   this.fcm.getPermission().subscribe();
+
   }
 
   initializeApp() {
-    SplashScreen.hide();
+    if (this.platform.is('android')) {
+      SplashScreen.hide();
     StatusBar.show();
-    this.fcm.nativePushWithCapacitor();
+   // this.fcm.nativePushSetup();
+    this.fcmCap.nativePushWithCapacitor();
+    }
   }
 
   updateCurrentUser() {

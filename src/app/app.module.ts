@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, RouteReuseStrategy, Routes } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +17,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
-import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireFunctionsModule, FUNCTIONS_ORIGIN, FUNCTIONS_REGION } from '@angular/fire/functions';
 // import { Push } from '@ionic-native/push/ngx';
 
 @NgModule({
@@ -38,8 +37,9 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
     AngularFireFunctionsModule
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
+   // Push,
+   { provide: FUNCTIONS_ORIGIN, useValue: 'https://us-central1-myionicshop-693bc.cloudfunctions.net/subscribeToTopic' },
+   { provide: FUNCTIONS_REGION, useValue: 'us-central1' },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

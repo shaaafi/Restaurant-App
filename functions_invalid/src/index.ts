@@ -32,7 +32,7 @@ export const unsubscribeToTopic = functions.https.onCall(
 
 export const sendOnFirestoreCreate = functions.firestore.document('/foodItems/{id}').onCreate((change,context) => {
    
-    const newItem:any = change.data();
+    const newItem = change.data();
 
     const notification: admin.messaging.Notification = {
         title: "New Food Item !!!",
