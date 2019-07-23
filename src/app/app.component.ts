@@ -57,12 +57,12 @@ export class AppComponent {
 
   updateCurrentUser() {
     this.afauth.authState$.subscribe((user: firebase.User) => {
-      console.log('Shouting from app component: ' + user);
+      // console.log('Shouting from app component: ' + user);
     });
   }
 
   signout() {
     this.afauth.signout();
-    console.log('You are signed out');
+   // console.log('You are signed out');
   }
 }

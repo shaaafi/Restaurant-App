@@ -8,6 +8,7 @@ import { AuthService } from '../../services/auth.service';
 import { CartService } from '../../services/cart.service';
 import { Cart } from '../../models/cart';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Category } from '../../models/category';
 
 
 
@@ -31,6 +32,7 @@ export class HomePage implements OnInit, OnDestroy {
     },
 
   };
+  categories: string[];
 
   // tslint:disable-next-line:max-line-length
   constructor(private popOver: PopoverController, private foodService: FoodsService, private navController: NavController, private afauth: AuthService, private cartService: CartService, private a: AngularFireAuth) {
@@ -51,6 +53,8 @@ export class HomePage implements OnInit, OnDestroy {
     this.subscription1 = this.foodService.getItems()
      .subscribe(r => {
        this.items = r;
+       this.categories = new Category(r).category;
+     // console.log(`the categories are: ${this.categories}`);
      });
 
   }
@@ -70,13 +74,13 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   getQuantity() {
-    console.log(this.uid);
+   // console.log(this.uid);
     this.cartService.getCart(this.uid)
     .subscribe(r => {
-      console.log(JSON.stringify(r));
+     // console.log(JSON.stringify(r));
       const cart: Cart = new Cart(r);
       this.quantity = cart.totalQuantity();
-      console.log('Here is: ' + this.quantity);
+     // console.log('Here is: ' + this.quantity);
     });
   }
 
