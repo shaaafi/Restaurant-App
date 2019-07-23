@@ -18,6 +18,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireFunctionsModule, FUNCTIONS_ORIGIN, FUNCTIONS_REGION } from '@angular/fire/functions';
+
 // import { Push } from '@ionic-native/push/ngx';
 
 @NgModule({
