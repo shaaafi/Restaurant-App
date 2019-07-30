@@ -11,28 +11,30 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home', loadChildren: './pages/home/home.module#HomePageModule'
+    path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
 
-  { path: 'cart', loadChildren: './pages/cart/cart.module#CartPageModule', canActivate: [UserGuard] },
+  { path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartPageModule), canActivate: [UserGuard] },
 
   // tslint:disable-next-line:max-line-length
-  { path: 'admin-product-form', loadChildren: './pages/admin-product-form/admin-product-form.module#AdminProductFormPageModule', canActivate: [UserGuard, AdminGuard] },
+  { path: 'admin-product-form', loadChildren: () => import('./pages/admin-product-form/admin-product-form.module').then(m => m.AdminProductFormPageModule), canActivate: [UserGuard, AdminGuard] },
   // tslint:disable-next-line:max-line-length
-  { path: 'admin-product-form/:id', loadChildren: './pages/admin-product-form/admin-product-form.module#AdminProductFormPageModule', canActivate: [UserGuard, AdminGuard] },
+  { path: 'admin-product-form/:id', loadChildren: () => import('./pages/admin-product-form/admin-product-form.module').then(m => m.AdminProductFormPageModule), canActivate: [UserGuard, AdminGuard] },
   // tslint:disable-next-line:max-line-length
-  { path: 'admin-product', loadChildren: './pages/admin-product/admin-product.module#AdminProductPageModule', canActivate: [UserGuard, AdminGuard] },
+  { path: 'admin-product', loadChildren: () => import('./pages/admin-product/admin-product.module').then(m => m.AdminProductPageModule), canActivate: [UserGuard, AdminGuard] },
   // tslint:disable-next-line:max-line-length
-  { path: 'admin-order', loadChildren: './pages/admin-order/admin-order.module#AdminOrderPageModule', canActivate: [UserGuard, AdminGuard] },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
-  { path: 'checkout', loadChildren: './pages/checkout/checkout.module#CheckoutPageModule', canActivate: [UserGuard] },
-  { path: 'order/:id', loadChildren: './pages/order/order.module#OrderPageModule', canActivate: [UserGuard] },
-  { path: 'search', loadChildren: './pages/search/search.module#SearchPageModule' },
-  { path: 'admin_order_detail/:id', loadChildren: './pages/admin-order-detail/admin-order-detail.module#AdminOrderDetailPageModule' },
-  { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule' },
-  { path: 'all-products', loadChildren: './pages/all-products/all-products.module#AllProductsPageModule' },
-  { path: 'order-history', loadChildren: './pages/order-history/order-history.module#OrderHistoryPageModule' },
+  { path: 'admin-order', loadChildren: () => import('./pages/admin-order/admin-order.module').then(m => m.AdminOrderPageModule), canActivate: [UserGuard, AdminGuard] },
+  { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule) },
+  { path: 'signup', loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule) },
+  // tslint:disable-next-line: max-line-length
+  { path: 'checkout', loadChildren: () => import('./pages/checkout/checkout.module').then(m => m.CheckoutPageModule), canActivate: [UserGuard] },
+  { path: 'order/:id', loadChildren: () => import('./pages/order/order.module').then(m => m.OrderPageModule), canActivate: [UserGuard] },
+  { path: 'search', loadChildren: () => import('./pages/search/search.module').then(m => m.SearchPageModule) },
+  // tslint:disable-next-line: max-line-length
+  { path: 'admin_order_detail/:id', loadChildren: () => import('./pages/admin-order-detail/admin-order-detail.module').then(m => m.AdminOrderDetailPageModule) },
+  { path: 'dashboard', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule) },
+  { path: 'all-products', loadChildren: () => import('./pages/all-products/all-products.module').then(m => m.AllProductsPageModule) },
+  { path: 'order-history', loadChildren: () => import('./pages/order-history/order-history.module').then(m => m.OrderHistoryPageModule) },
 ];
 
 @NgModule({
