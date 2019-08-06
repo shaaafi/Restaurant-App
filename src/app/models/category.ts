@@ -1,5 +1,10 @@
 import { foodItem } from './foodItem';
 
+export interface CategoriesItems {
+    categoryName: string;
+    categoryitems?: foodItem[];
+ }
+
 export class Category {
 
     constructor(public items: foodItem[]) {}
@@ -48,7 +53,3 @@ export class Category {
     }
 }
 
-export interface CategoriesItems {
-   categoryName: string;
-   categoryitems?: foodItem[];
-}

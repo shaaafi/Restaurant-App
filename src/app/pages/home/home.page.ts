@@ -53,8 +53,12 @@ export class HomePage implements OnInit, OnDestroy {
     this.subscription1 = this.foodService.getItems()
      .subscribe(r => {
        this.items = r;
-       this.categories = new Category(r).category();
-       console.log('the categories are:' + JSON.stringify(this.categories));
+       const cate: Category = new Category(r);
+       this.categories = cate.category();
+       for (const c of this.categories) {
+        c.categoryitems = cate.itemsByCatagory(c.categoryName);
+       }
+       // console.log('the categories are:' + JSON.stringify(this.categories));
      });
 
   }
