@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PopoverController, NavController } from '@ionic/angular';
+import { PopoverController, NavController, Platform } from '@ionic/angular';
 import { PopoverPage } from '../popover/popover.page';
 import { FoodsService } from '../../services/foods.service';
 import { Subscription } from 'rxjs';
@@ -32,10 +32,57 @@ export class HomePage implements OnInit, OnDestroy {
     },
 
   };
+  swiper1: any = {
+    slidesPerView: 3,
+    freeMode: true,
+    spaceBetween: -20,
+    breakpointsInverse: true,
+    breakpoints: {
+      // when window width is <= 320px
+      768: {
+        slidesPerView: 5,
+        spaceBetween: 1
+      },
+      // when window width is <= 480px
+      992: {
+        slidesPerView: 7,
+        spaceBetween: 1
+      },
+      // when window width is <= 640px
+      1200: {
+        slidesPerView: 8,
+        spaceBetween: 1
+      },
+    }
+};
+
+swiper2: any = {
+ // slidesPerView: auto,
+  freeMode: true,
+  spaceBetween: 40,
+  breakpointsInverse: true,
+  breakpoints: {
+    // when window width is <= 320px
+    768: {
+      slidesPerView: 5,
+      spaceBetween: 1
+    },
+    // when window width is <= 480px
+    992: {
+      slidesPerView: 7,
+      spaceBetween: 1
+    },
+    // when window width is <= 640px
+    1200: {
+      slidesPerView: 8,
+      spaceBetween: 1
+    },
+  }
+};
   categories: Array<CategoriesItems>;
 
   // tslint:disable-next-line:max-line-length
-  constructor(private popOver: PopoverController, private foodService: FoodsService, private navController: NavController, private afauth: AuthService, private cartService: CartService, private a: AngularFireAuth) {
+  constructor(private popOver: PopoverController, private foodService: FoodsService, private navController: NavController, private afauth: AuthService, private cartService: CartService, private a: AngularFireAuth, private platform: Platform) {
     this.subscription = this.afauth.authState$.subscribe(r => {
       this.authstate = r;
       if (r) {
@@ -59,9 +106,12 @@ export class HomePage implements OnInit, OnDestroy {
         c.categoryitems = cate.itemsByCatagory(c.categoryName);
        }
        // console.log('the categories are:' + JSON.stringify(this.categories));
-     });
+
+    }
+     );
 
   }
+
 
   async popover(ev: any) {
     const pop = await this.popOver.create({
@@ -74,7 +124,6 @@ export class HomePage implements OnInit, OnDestroy {
 
   goLogin() {
     this.navController.navigateForward('/login');
-
   }
 
   getQuantity() {

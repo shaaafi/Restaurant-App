@@ -1,6 +1,4 @@
 
- 
-
  .slide-one {
 
 background-image: url('../../../assets/images/login.jpg');
@@ -26,4 +24,124 @@ color: white;
 background-repeat: no-repeat;
  }
 
+ .slide-item {
+   //display:flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
+   font-size: 10px;
+  margin:0 !important;
+ }
+
+ .category-label {
+   font-size: 20px;
+   padding-left:10px
+ }
+
+ ion-slides.items {
+    height: 20vh;
+    padding: 0;
+      ion-slide {
+          padding: 0;
+          margin: 0;
+          ion-card.items {
+            border-radius: 9px;
+            height:19vh;
+            width:100%;
+
+            ion-img {
+              height:11vh;
+              width: 100%
+            }
+
+            ion-card-title {
+              font-size: 0.9em
+            }
+
+            p {
+              font-size: .8em
+            }
+
+          }
+
+      }
+   
+ }
+
+ ion-slides.categories {
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+    ion-slide {
+      margin:0;
+        padding: 0;
+    }
  
+}
+
+div.category {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  }
+
+  div.category::-webkit-scrollbar {
+    display: none;
+  }
+
+  
+  
+
+ 
+ 
+ @media only screen and (min-width:768px) {
+
+ }
+
+ @media only screen and (min-width:992px) {
+  ion-slides.items {
+    
+      ion-slide {
+          
+          ion-card.items {
+            
+
+            ion-card-title {
+              font-size: 1rem
+            }
+
+            p {
+              font-size: 0.9rem
+            }
+
+          }
+
+      }
+   
+ }
+}
+
+@media only screen and (min-width:1200px) {
+  ion-slides.items {
+    
+    ion-slide {
+        
+        ion-card.items {
+          
+
+          ion-card-title {
+            font-size: 1rem
+          }
+
+          p {
+            font-size: 0.9rem
+          }
+
+        }
+
+    }
+ 
+}
+}

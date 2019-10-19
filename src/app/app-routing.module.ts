@@ -35,6 +35,9 @@ const routes: Routes = [
   { path: 'dashboard', loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardPageModule) },
   { path: 'all-products', loadChildren: () => import('./pages/all-products/all-products.module').then(m => m.AllProductsPageModule) },
   { path: 'order-history', loadChildren: () => import('./pages/order-history/order-history.module').then(m => m.OrderHistoryPageModule) },
+  // tslint:disable-next-line: max-line-length
+  { path: 'items-by-category', loadChildren: () => import('./pages/items-by-category/items-by-category.module').then(m => m.ItemsByCategoryPageModule) },
+
 ];
 
 @NgModule({

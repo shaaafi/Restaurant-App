@@ -22,7 +22,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides pager="true" style="height:40vh;--bullet-background: white;" [options]="swiper">
+
+    
+  <ion-slides pager="true" style="height:30vh;--bullet-background: white;" [options]="swiper">
     <ion-slide class="slide-one">
       <ion-label color="--ion-color-tertiary-tint">
           <h1>
@@ -57,11 +59,64 @@
             </ion-slide> 
   </ion-slides>
 
+  <ng-container>
+    <ion-label class="category-label">Categories</ion-label>
+    <div class="category">
+      <ion-button shape="round" fill="outline" *ngFor="let c of categories">{{c.categoryName}}</ion-button>
+    </div>
+  </ng-container>
+  
+  <!--
+<ng-container>
+    <ion-label class="category-label">Categories</ion-label>
+    <ion-slides class="categories" [options]="swiper1">
+      <ion-slide class="items" *ngFor="let c of categories">
+          <ion-button shape="round" fill="outline">{{c.categoryName}}</ion-button>
+      </ion-slide>
+    </ion-slides>
+  </ng-container>
+
+  -->
+
+    <!--
+    <ion-grid fixed>
+        <ion-row>
+          <ion-col *ngFor="let c of categories">
+            <ion-button shape="round" fill="outline">{{c.categoryName}}</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  -->
+  
+  
+  
+<ng-container *ngFor="let c of categories" padding>
+  <ion-label class="category-label">{{c.categoryName}}</ion-label>
+  <ion-slides class="items" [options]="swiper1" *ngIf="items; else skeleton">
+    <ion-slide class="items" *ngFor="let item of c.categoryitems">
+      <ion-card class="items">
+        <ion-img [src]="item.img"></ion-img>
+        <ion-card-content>
+          <ion-card-title>
+             {{item.name}}
+            </ion-card-title>
+          <p>
+           <b>BDT  <i>{{item.price}}</i></b>
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ng-container>
+ 
+
+  
   <ion-grid>
+    <!--
     <ion-row *ngIf="items; else skeleton">
       <ion-col size-md="4" size-sm="12" size-lg="3" size="12" *ngFor="let item of items">
           <ion-card>
-              <img [src]="item.img" style="height: 25vh"/>
+              <ion-img [src]="item.img" style="height: 25vh"></ion-img>
               <ion-card-content>
                 <ion-card-title>
                    {{item.name}}
@@ -90,6 +145,7 @@
      
     </ion-row>
 
+    -->
     <ng-template #skeleton>
       <ion-row>
         <ion-col size="12" size-md="6" size-xl="4" *ngFor="let skeleton of [0,1,2,3,4,5,6,7,8,9,10]">
