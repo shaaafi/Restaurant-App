@@ -35,7 +35,7 @@ export class HomePage implements OnInit, OnDestroy {
   swiper1: any = {
     slidesPerView: 3,
     freeMode: true,
-    spaceBetween: -20,
+    spaceBetween: -10,
     breakpointsInverse: true,
     breakpoints: {
       // when window width is <= 320px
@@ -87,7 +87,7 @@ swiper2: any = {
       this.authstate = r;
       if (r) {
         this.uid = r.uid;
-        this.getQuantity() ;
+        this.getQuantity();
       } else {
         this.quantity = null;
       }

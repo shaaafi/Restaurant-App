@@ -38,6 +38,11 @@ background-repeat: no-repeat;
    padding-left:10px
  }
 
+  ion-content.main{
+    --background: darkslategrey;
+   // color: darkslategrey
+  }
+
  ion-slides.items {
     height: 20vh;
     padding: 0;
@@ -45,6 +50,9 @@ background-repeat: no-repeat;
           padding: 0;
           margin: 0;
           ion-card.items {
+            --background: rgba(128, 128, 128, 0.5);
+            //color: rgba($color: #808080, $alpha: 0.5)
+         // color: rgba(red, green, blue, alpha)
             border-radius: 9px;
             height:19vh;
             width:100%;
@@ -75,7 +83,7 @@ background-repeat: no-repeat;
   padding: 0;
     ion-slide {
       margin:0;
-        padding: 0;
+      padding: 0;
     }
  
 }
